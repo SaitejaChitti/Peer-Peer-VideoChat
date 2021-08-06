@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Peer2Peer</title>
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+    <!-- Custom Fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=New+Rocker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=New+Rocker&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lobster&display=swap" rel="stylesheet">
+    <!-- Theme CSS -->
+    <link href="{% static 'css/agency.css' %}" rel="stylesheet">
+
+    <style>    
+        body,h1,h5 
+        {
+            font-family: "Raleway", sans-serif;
+        }
+        body, html {
+            height: 100%
+        }
+        .bgimg {
+            background-image: url('{% static "img/background.jpeg" %}');
+            min-height: 100%;
+            background-position: center;
+            background-size: cover; 
+            opacity : 0.9;
+        }
+        .Text {
+            display: block;
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 40%;
+            font-weight: 400;
+            margin-block-start: 10.67em;
+            margin-block-end: 0.67em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            
+            font-family: 'Acme', sans-serif;
+            color: #FFFFFF;
+        }
+    </style>
+</head>
+
+<body>
+	 
+    <nav class="navbar navbar-toggleable-sm navbar-inverse fixed-top bg-primary">
+        <a class="navbar-brand" href="/"><b>Peer2Peer</b></a>
+        <div class="nav navbar-nav ml-auto">
+               <a href="login"  class="btn btn-danger"><strong>Logout</strong></a>
+            </div>
+    </nav>
+    
+
+    <div class="bgimg w3-display-container w3-text-white">
+  <div class="w3-display-middle w3-jumbo">
+    <p class="Text">Get  CoNNected &nbspWith &nbspThe &nbspWorld &nbspAnd &nbspExperience &nbspHigh &nbspQuality &nbspVideo Calling &nbspWith &nbspPeer2Peer</p>
+  </div>
+
+  <div class="img">
+    <img src="">
+  </div>
+  <div class="w3-display-topleft w3-container w3-xlarge">
+    <p><button onclick="document.getElementById('menu').style.display='block'" class="w3-button w3-black"></button></p><br><br>
+    
+  </div>
+  <div class="w3-display-bottomleft w3-container">
+    <p style="color:black;" class="w3-xlarge"></p>
+  </div>
+</div>
+
+<!-- Contact Modal -->
+<div id="contact" class="w3-modal">
+  <div class="w3-modal-content w3-animate-zoom">
+    <div class="w3-container w3-black">
+      <span onclick="document.getElementById('contact').style.display='none'" class="w3-button w3-display-topright" style="color:white">X</span>
+      <h1 style="font-family:TimesNewRoman;">Follow the steps to Get Started :<br></h1>
+    </div>
+    <div class="w3-container" style="background-color:powderblue;">
+      <form action="/action_page.php" target="_blank">
+        <p style="font-family: TimesNewRoman;"><br><b>1. Enter Your Id.</p>
+        <p style="font-family: TimesNewRoman;">2. You will see a table containing names of users who are avaible online for calling or chatting. </p>
+        <p style="font-family: TimesNewRoman;">3. Click on the name of user you wish to connect with.</p>
+        <p style="font-family: TimesNewRoman;">4. A chat window will pop-up.</p>
+        <p style="font-family: TimesNewRoman;">5. The chat window also contains the video-call and voice-call icons.</p>
+        <p style="font-family: TimesNewRoman;">6. Click on the icon to experience your desirable feature.</b></p>
+        <h3 style="font-family: 'Concert One', cursive"><b>&nbsp&nbsp&nbspGet Started !!<b></h3>
+        <br>
+      </form>
+    </div>
+  </div>
+</div>
+
+    <section id="chat-app" style="background-color: #FFF0F5;">
+    	<div class="container">
+    		<div class="row">
+    			<div class="col-lg-6 col-md-6 mb-4">
+    				<h2 style="font-family: 'Concert One', cursive;">Your Name : <h2><h4 id="peer-id" data-toggle="tooltip" data-placement="top"</h3>
+                    <br><br><a href="#getUserNameModal" data-toggle="modal" style="color: #DC143C">Edit Name</a>
+    			</div>
+    			<div class="col-lg-6 col-md-6 mb-5 hide">
+    				<div class="form-inline">
+						<div class="form-group mr-sm-3">
+							<label for="inputPeerUserId" class="sr-only">Password</label>
+							<input type="text" class="form-control" id="inputPeerUserId" placeholder="Enter your friends ID">
+						</div>
+						<button type="button" class="btn btn-outline-primary" id='connect-btn'>Connect</button>
+					</div>
+    			</div>
+                <div class="col-lg-6 col-md-6 mb-4">
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4 style="font-family: 'Concert One', cursive;" class="panel-title"><center><b>Online Users</b></center></h4>
+                            <br>
+                        </div>
+                        <div class="panel-body">
+                            
+                            <ul class="onlinepeers">
+                            </ul>
+                            
+                        </div>
+                    </div>
+                </div>
+    		</div>
+    	</div>
+    </section>
+
+    <div class="container-fluid chat-container">
+		<div class="row">
+		</div>
+    </div>
+
+    <!-- Portfolio Modals -->
+    <!-- Use the modals below to showcase details about your portfolio projects! -->
+    <!-- Portfolio Modal 1 -->
+    <div class="portfolio-modal modal" id="videoCallPanel" tabindex="-1" role="dialog" data-keyboard="false" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background-image:url('https://eskipaper.com/images/free-background-5.jpg'); background-size:cover;">
+                <div class="close-modal end-call hide" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl">
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="background-image:url('https://makbeautyinstitute.com/wp-content/uploads/2011/01/plain-backgrounds-light-green-website-background-hd-wallpaper-plain-888779177.jpg')">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="modal-body">
+                                <!-- Project Details Go Here -->
+                                <h2 style="font-family: 'Concert One', cursive; color: #FAF0E6" class="title">Video Call</h2>
+                                <div class="pure-u-2-3" id="video-container">
+                                    <video id="their-video" autoplay=""></video>
+                                    <video id="my-video" muted="true" autoplay=""></video>
+                                </div>
+
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn btn-secondary mute-audio ml-3 mt-2" style="font-family: 'Concert One', cursive;"><i class="fa fa-microphone-slash"></i>Mute Audio</button>
+                                    <button type="button" class="btn btn-secondary mute-video ml-3 mt-2" style="font-family: 'Concert One', cursive;"><i class="fa fa-video-camera"></i>Mute Video</button>
+                                    <button type="button" class="btn btn-danger end-call ml-3 mt-2" data-dismiss="modal" style="font-family: 'Concert One', cursive;"><i class="fa fa-times"></i>End Call</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="getUserNameModal" tabindex="-1" role="dialog" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop='static'>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel" style="font-family: 'Concert One', cursive; font-size: 30px;">Enter your Name</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="user-name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" data-dismiss="modal" class="btn btn-primary username-done">Done</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="callConfirmationModal" tabindex="-1" role="dialog" data-keyboard="false" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop='static'>
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title peer-name"></h5>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger reject-call" data-dismiss="modal" style="font-family: 'Concert One', cursive;">REJECT</button>
+                    <button type="button" class="btn btn-primary accept-call" data-dismiss="modal" style="font-family: 'Concert One', cursive;">ACCEPT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'js/peer.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/peer-client.js' %}"></script>
+</body>
+
+</html>

@@ -1,0 +1,151 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="{% static "css/loginstyle.css"%}">
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	
+</head>
+<body >
+    <div class="section">
+		<div class="container">
+		    <div class="row full-height justify-content-center">
+				<div class="col-12 text-center align-self-center py-5">
+					<div class="section pb-5 pt-5 pt-sm-2 text-center">
+						<h6 class="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
+			          	<input class="checkbox" type="checkbox" id="reg-log" name="reg-log" onclick="myFunction(this)"/>
+			          	<label for="reg-log"></label>
+						  {% for message in messages %}
+						  <br>
+						  					{% ifequal message.tags 'warning' %}
+											<div class="alert alert-danger alert-dismissible fade show" role="alert">
+												<strong>{{message}}</strong> 
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											{% endifequal %}
+
+											{% ifequal message.tags 'success' %}
+											<div class="alert alert-success alert-dismissible fade show" role="alert">
+												<strong>{{message}}</strong> 
+												<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+													<span aria-hidden="true">&times;</span>
+												</button>
+											</div>
+											{% endifequal %}	
+
+											{% endfor %}
+						<div class="card-3d-wrap mx-auto">
+							<div class="card-3d-wrapper" id="card-3d-wrapper">
+								<div class="card-front" id="card-front">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Log In</h4>
+											
+											<form action="login_user" method="post">
+											 {% csrf_token %}
+											<div class="form-group">
+                                                <input type="text" name="logname" 
+                                                class="form-style" 
+                                                placeholder="Your Email" 
+                                                id="logemail" 
+                                                autocomplete="none">
+												<i class="input-icon uil uil-user"></i>
+											</div>	
+											<div class="form-group mt-2">
+                                                <input type="password" name="logpass" 
+                                                class="form-style" 
+                                                placeholder="Your Password" 
+                                                id="logpass" autocomplete="none">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<button type="submit" class="btn mt-4">submit</button>
+											</form>
+                            				<p class="mb-0 mt-4 text-center">
+                                                <a href="#0" class="link">Forgot your password?</a>
+                                            </p>
+				      					</div>
+			      					</div>
+			      				</div>
+								  <div class="card-back" id="card-back">
+									<div class="center-wrap">
+										<div class="section text-center">
+											<h4 class="mb-4 pb-3">Sign Up</h4>
+											{% for i in re %}
+											{{i | safe}}
+											{% endfor %}
+											<form action="register_user" method="post">
+											 {% csrf_token %}
+											<div class="form-group">
+                                                <input type="text" name="logname" 
+                                                class="form-style" 
+                                                placeholder="Your Full Name" 
+                                                id="logname" 
+                                                autocomplete="none">
+												<i class="input-icon uil uil-user"></i>
+											</div>	
+											<div class="form-group mt-2">
+                                                <input type="email" name="logemail" 
+                                                class="form-style" 
+                                                placeholder="Your Email" 
+                                                id="logemail" autocomplete="none">
+												<i class="input-icon uil uil-at"></i>
+											</div>	
+											<div class="form-group mt-2">
+                                                <input type="password" name="logpass" 
+                                                class="form-style" 
+                                                placeholder="Your Password" 
+                                                id="logpass" 
+                                                autocomplete="none">
+												<i class="input-icon uil uil-lock-alt"></i>
+											</div>
+											<button type="submit" class="btn mt-4">submit</button>
+											</form>
+				      					</div>
+			      					</div>
+			      				</div>
+			      			</div>
+			      		</div>
+			      	</div>
+		      	</div>
+	      	</div>
+	    </div>
+	</div>
+	
+	<script>
+	
+	window.onload = function() {
+		let url=window.location.href;
+		if(url.includes('register')){
+			document.getElementById("card-3d-wrapper").className="card-3d-wrapper flip";
+			document.getElementById("reg-log").checked = true;
+		}
+			
+};
+function myFunction(obj) {
+	let url=window.location.href;
+	
+	var fcard=document.getElementById('card-front');
+	let v=fcard && fcard.classList.contains('card-front');
+	
+	if(v && obj.checked && url.includes('login')){
+	location.href="register";
+	
+	}	
+	if(v && url.includes('register') && !obj.checked){
+		location.href="login";
+	}
+	
+	
+}
+</script>
+</body>
+</html>
